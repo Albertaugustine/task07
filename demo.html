@@ -12,18 +12,20 @@
   color: white;}
   p{font-weight: bold; font-family: Sans-serif;	font-size: 12px}
   .center {
+
   margin: 0 auto;
   width: 50%;
-  border: 3px solid green;
+  border: 3px ;
   padding: 10px;
 
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body ng-app="myHex" ng-controller="ctrl" class="center">
-	<div style="text-align: center;  ">
+	<div style="text-align: center;   ">
 		<form ng-submit="Add()" name="aform">
-			<h1><u><b>Enter Details</b></u></h1>
+			<h2 style="font-family: sans-serif;"><u><b>Enter Details</b></u></h2>
+			<br>
 			<p>Enter First name: </p>
 			<input type="text" ng-model="fnm">
 			
