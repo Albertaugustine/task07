@@ -6,13 +6,13 @@
 <style type="text/css">
 	input.ng-invalid{background-color: #fc5603}
 	body{background-image: url(https://images.unsplash.com/photo-1549321495-305eb13f8aa9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9); background-size: cover; ;background-repeat: no-repeat; }
-	form{margin-top: auto; }
+	form{margin-top: 80px; }
 	table,tr,td{border: 1px solid grey;  border-collapse: collapse;
   padding: 5px; margin: auto; background-color: #6daee3;
   color: white;}
   p{font-weight: bold; font-family: Sans-serif;	font-size: 12px}
   .center {
-  margin: auto;
+  margin: 0 auto;
   width: 50%;
   border: 3px solid green;
   padding: 10px;
@@ -23,6 +23,7 @@
 <body ng-app="myHex" ng-controller="ctrl" class="center">
 	<div style="text-align: center;  ">
 		<form ng-submit="Add()" name="aform">
+			<h1><u><b>Enter Details</b></u></h1>
 			<p>Enter First name: </p>
 			<input type="text" ng-model="fnm">
 			
