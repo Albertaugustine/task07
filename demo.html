@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	input.ng-invalid{background-color: #fc5603}
+	body{background-image: url(ph.jpg); background-size: cover; ;background-repeat: no-repeat; }
+	form{margin-top: auto; }
+	table,tr,td{border: 1px solid grey;  border-collapse: collapse;
+  padding: 5px; margin: auto; background-color: #6daee3;
+  color: white;}
+  p{font-weight: bold; font-family: Sans-serif;	font-size: 12px}
+  .center {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="myHex" ng-controller="ctrl" class="center">
+	<div style="text-align: center;  ">
+		<form ng-submit="Add()" name="aform">
+			<p>Enter First name: </p>
+			<input type="text" ng-model="fnm">
+			
+			<p>Enter Last name: </p>
+			<input type="text" ng-model="lst">
+
+			<p>Enter email address: </p>
+			<input type="email" name="mail" ng-model="em">
+			<span ng-show="aform.mail.$error.email" style="text-decoration-color: grey">Not valid</span>
+
+			<br><br>
+			<input type="submit" value="Submit">
+			<br>
+			<br>			
+		</form>
+
+		<div style="margin: auto;  width: 50%; border: 1.5px solid green">
+			<p>The entered details are diplayed in the below table.<br>Check the box and click delete to remove specific rows.</p>
+		</div>
+		<br>
+		<div style="text-align: center;">
+			
+			<table>
+				<tr ng-repeat="x in names">
+
+					<td>{{ $index + 1 }}</td>
+					<td><span ng-bind="x.Text1"></span></td>
+					<td><span ng-bind="x.Text2"></span></td>
+					<td><span ng-bind="x.ml"></span></td>
+					<td><input type="checkbox" ng-model="x.done"> Remove </td>
+			 	</tr>
+			</table>
+			<br>
+			<input type="button" ng-click="remove()" name="del" value="Delete selected">
+		</div>
+
+		<script>
+			var a = angular.module('myHex',[]);
+			a.controller('ctrl',function($scope){
+				$scope.names=[];
+				$scope.Add=function() {
+					
+					$scope.names.push({Text1:$scope.fnm, Text2:$scope.lst, ml:$scope.em});
+				};
+
+				$scope.remove=function() {
+					var tmp=$scope.names;
+					$scope.names=[];
+					angular.forEach(tmp, function(x) {
+           			 if (!x.done) $scope.names.push(x);
+       			 });
+
+				}
+
+
+			});
+		</script>
+	</div>
+</body>
+</html>
